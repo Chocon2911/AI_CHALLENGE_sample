@@ -56,7 +56,8 @@ def main(args):
                 "diagramRef": "",
                 "category": "general"
                 You are not allow to use the things: ")", "("
-                Your answer format should be like this: c
+                Your answer format should be like this: 
+                c
                 """
                 ques = problem["Problem"]
                 max_len = 20

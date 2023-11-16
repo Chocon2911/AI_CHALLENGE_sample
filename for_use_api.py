@@ -55,8 +55,8 @@ def main(args):
                 "options": "a ) 350 , b ) 250 , c ) 450 , d ) 550 , e ) 650",
                 "diagramRef": "",
                 "category": "general"
-                Your answer format should be like this:
-                Answer: c
+                You are not allow to use the things: ")", "("
+                Your answer format should be like this: c
                 """
                 ques = problem["Problem"]
                 max_len = 20

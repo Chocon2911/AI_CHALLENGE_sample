@@ -55,7 +55,7 @@ def main(args):
                 "options": "a ) 350 , b ) 250 , c ) 450 , d ) 550 , e ) 650",
                 "diagramRef": "",
                 "category": "general"
-                You are not allow to use the things: ")", "(", "{", "}", "[", "]", "Answer:"
+                You are not allow to use the things: ")", "(", "{", "}"
                 You should answer the question with only one letter like this: a, b, c, d, e, f, g, h, i, j
                 Your answer format should be like this: 
                 c

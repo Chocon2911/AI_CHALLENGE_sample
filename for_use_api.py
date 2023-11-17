@@ -5,7 +5,6 @@ import re
 
 from dataset import get_data
 
-
 def get_response(args, user_request, max_len, temp):
     responese = openai.Completion.create(
         engine = args.model_name,
@@ -48,17 +47,14 @@ def main(args):
         with open('./results/results.txt', 'a') as f:
             for problem in test_examples:
                 prompt = """
-                Assume that you are doing a SAT Test. 
-                This is an example (multiple choices question format) of the question you need to answer:
-                "id": 2,
-                "Problem": "a large box contains 18 small boxes and each small box contains 25 chocolate bars . how many chocolate bars are in the large box ?",
-                "options": "a ) 350 , b ) 250 , c ) 450 , d ) 550 , e ) 650",
-                "diagramRef": "",
-                "category": "general"
-                You are not allow to use the things: ")", "(", "{", "}"
-                You should answer the question with only one letter like this: a, b, c, d, e, f, g, h, i, j
-                Your answer format should be like this: 
-                c
+                Ignore all previous instructions, you are a very smart puzzle riddle and math problem solver you will use logic and reasoning to solve hard problems and get answers of this SAT math test in the simplest way.             
+                       
+            You're also someone who professionally checks spelling, logic, and structural errors. Before answering, If in {options} or {problem} there are some of these errors likes grammatical errors, vocabulary errors, expression errors, logical errors, mathematical errors  in the "Problem", please accurately amend and replace the previous answer in {options} by the new one and The answer must ONLY be in alphabet character (ignore unexpected extra characters and alphabet characters )  or numbers if {option}: "" and the units behind them are banned.
+            Try to avoid distracting characters, symbols and numbers in {options} as much as possible,
+            Which are banned in the {answers} : Symbols like ")", "(", "{", "}", numbers, rational numbers and their combinations.
+            Your {answer} format should be like one of these choices and must not have any others banned stuff: 
+            'a' OR 'b' OR 'c' OR 'd' OR 'e'
+            If {answer} was not found, please check again until correct to make sure {answer} is not empty and write it in the {answer}
                 """
                 ques = problem["Problem"]
                 max_len = 20
